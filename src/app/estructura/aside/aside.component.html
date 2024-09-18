@@ -1,0 +1,93 @@
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+      <img src="../../../assets/dist/img/logo.jpg" width="80%" height="80%" class="img-circle img-center">
+      <hr>
+      <span class="brand-text font-weight-light">Software De Inventario <br> "Licorera <br> La Última Y Nos Vamos"</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">        
+        <div class="info">
+          <a href="#" class="d-block">{{nombre}}</a>
+        </div>
+      </div>      
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          
+          <li class="nav-item">
+            <a [routerLink]="['/dashboard']" class="nav-link">
+              <img src="../../../assets/dist/img/analisis-de-los-datos.png" width="20%" height="20%">
+              <p>
+                Dashboard                
+              </p>
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="rol!='Vendedor'">
+            <a [routerLink]="['/categoria']" class="nav-link">
+              <img src="../../../assets/dist/img/categorias.png" width="20%" height="20%">
+              <p>
+                Categorías                
+              </p>
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="rol!='Vendedor'">
+            <a [routerLink]="['/proveedor']" class="nav-link">
+              <img src="../../../assets/dist/img/proveedor.png" width="20%" height="20%">
+              <p>
+                Proveedores                
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a [routerLink]="['producto']" class="nav-link">
+              <img src="../../../assets/dist/img/seguro-de-calidad.png" width="20%" height="20%">
+              <p>
+                Productos                
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a [routerLink]="['/cliente']" class="nav-link">
+              <img src="../../../assets/dist/img/cliente.png" width="20%" height="20%">
+              <p>
+                Clientes                
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a [routerLink]="['/pedido']" class="nav-link">
+              <img src="../../../assets/dist/img/realizar-pedidos.png" width="20%" height="20%">
+              <p>
+                Pedidos                
+              </p>
+            </a>
+          </li>
+          <li class="nav-item" *ngIf="rol!='Vendedor'">
+            <a [routerLink]="['/usuario']" class="nav-link">
+              <img src="../../../assets/dist/img/usuario.png" width="20%" height="20%">
+              <p>
+                Usuarios                
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a [routerLink]="['/reporte']" class="nav-link">
+              <img src="../../../assets/dist/img/reporte-de-negocios.png" width="20%" height="20%">
+              <p>
+                Reportes                
+              </p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>

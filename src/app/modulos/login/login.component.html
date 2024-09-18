@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="login.component.scss">
+<div class="row">  
+  <div class="col-lg-7">
+    <img src="../../../assets/dist/img/liv.png" width="50%" height= "85%" class="img-center" style="position:absolute; top: 110px; left:550px">
+  </div>
+  <div class="col-lg-2">   
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="login-box">
+      <!-- /.login-logo -->
+      <div class="card card-outline card-primary">
+      <div class="card-header text-center">        
+      <div class="card-body login-card-body">
+      <a><b class="h1">SOFTWARE DE INVENTARIO Y VENTAS</b></a>
+      <hr>    
+      <img src="../../../assets/dist/img/logo.jpg" alt="Logo" width="100%" class="brand-image img-circle elevation-3" style="opacity: .8">      
+      <!-- <p class="login-box-msg">Sign in to start your session</p>-->
+      <br>
+      <br>
+      <form action="index3.html" method="post">
+        <div id="datos">
+          <div class="input-group mb-3">
+            <input type="email" id="email" placeholder="Correo Electrónico" class="form-control"  [(ngModel)]="email" name="email">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input type="password" id="clave" placeholder="Contraseña" class="form-control" [(ngModel)]="clave" name="clave">
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+            <br>
+            <br>
+            <span style="color:red;" *ngIf="error==true"></span>
+            <br>
+        </div>                
+        </div>
+        <br>
+         <!-- /.col -->
+          <div class="col-12" style="background-color: white;">            
+            <button type="submit" class="btn btn-primary btn-block" (click)="consulta('')">Iniciar Sesión</button>
+          </div>
+          <!-- /.col -->
+        </form>
+    </div>    
+  </div>
+  <div class="col-lg-3"></div>  
+</div>
+
+
+

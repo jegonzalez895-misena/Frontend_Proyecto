@@ -1,0 +1,80 @@
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0">Categoría</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Categoría</li>
+              </ol>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <section class="content">
+        <div class="container-fluid">
+          <!--contenido-->
+          <hr>
+          <input type="button" value="Insertar Categoría" class="btn btn-warning" (click)="mostrar_form('ver')">          
+          <!--formulario-->
+          <div id="formulario" *ngIf="mform==true">
+            <hr>                          
+              <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-3">
+                  <input type="text" class="form-control" placeholder="Ingresar Código De La Categoría" [(ngModel)]="obj_categoria.codigo">
+                  <span style="color:red" *ngIf="validar_codigo ==false">Ingresar Código De La Categoría</span>
+                  <br>
+                </div>
+                <div class="col-lg-3">
+                  <input type="text" class="form-control" placeholder="Ingresar Nombre De La Categoría" [(ngModel)]="obj_categoria.nombre">
+                  <span style="color:red" *ngIf="validar_nombre ==false">Ingresar Nombre De La Categoría</span>
+                  <br>
+                </div>
+                <div class="col-lg-3"></div>
+              </div>
+              <div class="row">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-3">
+                  <input type="button" value="Guardar" class="btn btn-primary" style="width: 100%;" (click)="validar('guardar')" *ngIf="botones_form == false">
+                  <input type="button" value="Editar" class="btn btn-primary" style="width: 100%;" (click)="validar('editar')" *ngIf="botones_form == true">
+                </div>
+                <div class="col-lg-3">
+                  <input type="button" value="Cancelar" class="btn btn-secondary" style="width: 100%;" (click)="mostrar_form('no ver')">
+                </div>
+                <div class="col-lg-3"></div>
+              </div>                   
+          </div>
+          <hr>
+          <div id="tabla">
+            <div class="row">
+              <div class="col-lg-3"></div>
+              <div class="col-lg-6">
+                <div class="table-responsive">
+                  <table class="table">
+                    <tr>
+                      <th>Código</th>
+                      <th>Nombre</th>
+                      <th>Acciones</th>
+                    </tr>
+                    <tr *ngFor="let item of categoria">
+                      <td>{{item.codigo}}</td>
+                      <td>{{item.nombre}}</td>
+                      <td>
+                        <span class="fas fa-edit" style="color:blue; cursor:pointer" title="Editar" (click)="cargar_datos(item, item.id_categoria)"></span>
+                        <span class="fas fa-minus-square" style="color:red; cursor:pointer" title="Eliminar" (click)="eliminar(item.id_categoria)"></span>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="col-lg-3"></div>
+            </div>
+            
+          </div>
+            
+        </div>
+      </section>

@@ -1,0 +1,127 @@
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0">Cliente</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Cliente</li>
+              </ol>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <section class="content">
+        <div class="container-fluid">
+
+          <!--contenido-->
+          <hr>
+          <input type="button" value="Insertar Cliente" class="btn btn-warning" (click)="mostrar_form('ver')">
+          <!--formulario-->
+          <div id="formulario" *ngIf="mform==true">
+            <hr>
+            <div class="row">
+              <div class="col-lg-3">
+                <input type="text" class="form-control" placeholder="Ingresar Código Del Cliente" [(ngModel)]="obj_cliente.codigo">
+                  <span style="color:red" *ngIf="validar_codigo ==false">Ingresar Código Del Cliente</span>
+                  <br>
+              </div>
+              <div class="col-lg-3">
+                <input type="text" class="form-control" placeholder="Ingresar Identificación Del Cliente" [(ngModel)]="obj_cliente.identificacion">
+                  <span style="color:red" *ngIf="validar_codigo ==false">Ingresar Identificación Del Cliente</span>
+                  <br>
+              </div>
+              <div class="col-lg-3">
+                <input type="text" class="form-control" placeholder="Ingresar Nombre Del Cliente" [(ngModel)]="obj_cliente.nombre">
+                  <span style="color:red" *ngIf="validar_codigo ==false">Ingresar Nombre Del Cliente</span>
+                  <br>
+              </div>
+              <div class="col-lg-3">
+                <input type="text" class="form-control" placeholder="Ingresar Dirección Del Cliente" [(ngModel)]="obj_cliente.direccion">
+                  <span style="color:red" *ngIf="validar_codigo ==false">Ingresar Dirección Del Cliente</span>
+                  <br>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-3">
+                <input type="text" class="form-control" placeholder="Ingresar Celular Del Cliente" [(ngModel)]="obj_cliente.celular">
+                  <span style="color:red" *ngIf="validar_codigo ==false">Ingresar Celular Del Cliente</span>
+                  <br>
+              </div>
+              <div class="col-lg-3">
+                <input type="text" class="form-control" placeholder="Ingresar Email Del Cliente" [(ngModel)]="obj_cliente.email">
+                  <span style="color:red" *ngIf="validar_codigo ==false">Ingresar Email Del Cliente</span>
+                  <br>
+              </div>
+              <div class="col-lg-3">
+                <select class="form-control form-select" [(ngModel)]="obj_cliente.fo_ciudad">
+                  <option value="0" label="Seleccionar Ciudad Del Cliente" selected="selected">Seleccionar Ciudad Del Cliente</option>
+                  <option *ngFor="let itemc of ciudad" value="{{itemc.id_ciudad}}">{{itemc.nombre}}</option>                  
+                </select>
+                <span style="color:red" *ngIf="validar_ciudad ==false">Seleccionar Ciudad Del Cliente</span>
+              </div>
+              <div class="col-lg-3">
+                <select class="form-control form-select" [(ngModel)]="obj_cliente.fo_dpto">
+                  <option value="0" label="Seleccionar Dpto Del Cliente" selected="selected">Seleccionar Dpto Del Cliente</option>
+                  <option *ngFor="let itemd of dpto" value="{{itemd.id_dpto}}">{{itemd.nombre}}</option>                  
+                </select>
+                <span style="color:red" *ngIf="validar_dpto ==false">Seleccionar Dpto Del Cliente</span>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-3"></div>
+              <div class="col-lg-3">
+                <input type="button" value="Guardar" class="btn btn-primary" style="width: 100%;" (click)="validar('guardar')" *ngIf="botones_form == false">
+                <input type="button" value="Editar" class="btn btn-primary" style="width: 100%;" (click)="validar('editar')" *ngIf="botones_form == true">
+              </div>
+              <div class="col-lg-3">
+                <input type="button" value="Cancelar" class="btn btn-secondary" style="width: 100%;" (click)="mostrar_form('no ver')">
+              </div>
+              <div class="col-lg-3"></div>
+            </div>
+          </div>
+          <hr>
+          <div id="tabla">
+            <div class="row">
+              <div class="col-lg-1"></div>
+              <div class="col-lg-11">
+                <div class="table-responsive">
+                  <table class="table">
+                    <tr>
+                     <th>Código</th>
+                     <th>identificación</th>
+                     <th>Nombre</th>
+                     <th>Dirección</th>
+                     <th>Celular</th>
+                     <th>Email</th>
+                     <th>Ciudad</th>
+                     <th>Dpto</th>                
+                     <th>Acciones</th>
+                    </tr>
+                    <tr *ngFor="let item of cliente">
+                     <td>{{item.codigo}}</td> 
+                     <td>{{item.identificacion}}</td>
+                     <td>{{item.nombre}}</td>
+                     <td>{{item.direccion}}</td>
+                     <td>{{item.celular}}</td>
+                     <td>{{item.email}}</td>
+                     <td>{{item.ciudad}}</td>
+                     <td>{{item.dpto}}</td>                     
+                     <td>
+                        <span class="fas fa-edit" style="color:blue; cursor:pointer" title="Editar" (click)="cargar_datos(item, item.id_cliente)"></span>
+                        <span class="fas fa-minus-square" style="color:red; cursor:pointer" title="Eliminar" (click)="eliminar(item.id_cliente)"></span>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <div class="col-lg-3"></div>
+            </div>
+            
+          </div>
+            
+        </div>
+      </section>
